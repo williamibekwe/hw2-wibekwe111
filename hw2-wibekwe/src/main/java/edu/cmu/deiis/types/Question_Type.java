@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Wed Sep 11 13:44:28 EDT 2013 */
+/* First created by JCasGen Thu Sep 19 20:33:25 EDT 2013 */
 package edu.cmu.deiis.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,7 +11,7 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 
 /** 
- * Updated by JCasGen Wed Sep 11 13:44:28 EDT 2013
+ * Updated by JCasGen Fri Sep 20 11:56:49 EDT 2013
  * @generated */
 public class Question_Type extends Annotation_Type {
   /** @generated */

@@ -1,7 +1,7 @@
 
 
-/* First created by JCasGen Thu Sep 19 20:33:25 EDT 2013 */
-package edu.cmu.deiis.types;
+/* First created by JCasGen Thu Sep 19 20:10:03 EDT 2013 */
+package edu.cmu.deiis.types.subTypes;
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
@@ -13,7 +13,7 @@ import org.apache.uima.jcas.cas.TOP_Type;
  * Updated by JCasGen Fri Sep 20 11:56:49 EDT 2013
  * XML source: /Users/willibeamin/workspace/hw2-wibekwe/.git/hw2/hw2-wibekwe/src/main/resources/descriptors/subTypesDescriptor.xml
  * @generated */
-public class Token extends Annotation {
+public class Token extends edu.cmu.deiis.types.Token {
   /** @generated
    * @ordered 
    */
@@ -59,6 +59,24 @@ public class Token extends Annotation {
   @generated modifiable */
   private void readObject() {/*default - does nothing empty block */}
      
-}
+ 
+    
+  //*--------------*
+  //* Feature: TokenString
+
+  /** getter for TokenString - gets 
+   * @generated */
+  public String getTokenString() {
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_TokenString == null)
+      jcasType.jcas.throwFeatMissing("TokenString", "edu.cmu.deiis.types.subTypes.Token");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_TokenString);}
+    
+  /** setter for TokenString - sets  
+   * @generated */
+  public void setTokenString(String v) {
+    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_TokenString == null)
+      jcasType.jcas.throwFeatMissing("TokenString", "edu.cmu.deiis.types.subTypes.Token");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_TokenString, v);}    
+  }
 
     

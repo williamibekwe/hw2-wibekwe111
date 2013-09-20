@@ -1,24 +1,25 @@
 
 
-/* First created by JCasGen Thu Sep 19 20:33:25 EDT 2013 */
-package edu.cmu.deiis.types;
+/* First created by JCasGen Thu Sep 19 20:10:03 EDT 2013 */
+package edu.cmu.deiis.types.subTypes;
 
 import org.apache.uima.jcas.JCas; 
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
+import edu.cmu.deiis.types.NGram;
 
 
 /** 
  * Updated by JCasGen Fri Sep 20 11:56:49 EDT 2013
  * XML source: /Users/willibeamin/workspace/hw2-wibekwe/.git/hw2/hw2-wibekwe/src/main/resources/descriptors/subTypesDescriptor.xml
  * @generated */
-public class Answer extends Annotation {
+public class NGramSets extends NGram {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(Answer.class);
+  public final static int typeIndexID = JCasRegistry.register(NGramSets.class);
   /** @generated
    * @ordered 
    */
@@ -30,23 +31,23 @@ public class Answer extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected Answer() {/* intentionally empty block */}
+  protected NGramSets() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated */
-  public Answer(int addr, TOP_Type type) {
+  public NGramSets(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
   
   /** @generated */
-  public Answer(JCas jcas) {
+  public NGramSets(JCas jcas) {
     super(jcas);
     readObject();   
   } 
 
   /** @generated */  
-  public Answer(JCas jcas, int begin, int end) {
+  public NGramSets(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -62,21 +63,21 @@ public class Answer extends Annotation {
  
     
   //*--------------*
-  //* Feature: isCorrect
+  //* Feature: Token
 
-  /** getter for isCorrect - gets 
+  /** getter for Token - gets 
    * @generated */
-  public boolean getIsCorrect() {
-    if (Answer_Type.featOkTst && ((Answer_Type)jcasType).casFeat_isCorrect == null)
-      jcasType.jcas.throwFeatMissing("isCorrect", "edu.cmu.deiis.types.Answer");
-    return jcasType.ll_cas.ll_getBooleanValue(addr, ((Answer_Type)jcasType).casFeatCode_isCorrect);}
+  public Token getToken() {
+    if (NGramSets_Type.featOkTst && ((NGramSets_Type)jcasType).casFeat_Token == null)
+      jcasType.jcas.throwFeatMissing("Token", "edu.cmu.deiis.types.subTypes.NGramSets");
+    return (Token)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((NGramSets_Type)jcasType).casFeatCode_Token)));}
     
-  /** setter for isCorrect - sets  
+  /** setter for Token - sets  
    * @generated */
-  public void setIsCorrect(boolean v) {
-    if (Answer_Type.featOkTst && ((Answer_Type)jcasType).casFeat_isCorrect == null)
-      jcasType.jcas.throwFeatMissing("isCorrect", "edu.cmu.deiis.types.Answer");
-    jcasType.ll_cas.ll_setBooleanValue(addr, ((Answer_Type)jcasType).casFeatCode_isCorrect, v);}    
+  public void setToken(Token v) {
+    if (NGramSets_Type.featOkTst && ((NGramSets_Type)jcasType).casFeat_Token == null)
+      jcasType.jcas.throwFeatMissing("Token", "edu.cmu.deiis.types.subTypes.NGramSets");
+    jcasType.ll_cas.ll_setRefValue(addr, ((NGramSets_Type)jcasType).casFeatCode_Token, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     
