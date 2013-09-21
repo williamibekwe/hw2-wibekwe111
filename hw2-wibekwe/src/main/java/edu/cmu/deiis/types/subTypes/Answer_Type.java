@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import edu.cmu.deiis.types.AnswerScore_Type;
 
 /** 
- * Updated by JCasGen Fri Sep 20 11:56:49 EDT 2013
+ * Updated by JCasGen Fri Sep 20 15:16:25 EDT 2013
  * @generated */
 public class Answer_Type extends AnswerScore_Type {
   /** @generated */

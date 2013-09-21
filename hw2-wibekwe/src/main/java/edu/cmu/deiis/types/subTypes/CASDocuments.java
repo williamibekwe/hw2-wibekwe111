@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.DocumentAnnotation;
 
 
 /** 
- * Updated by JCasGen Fri Sep 20 11:56:49 EDT 2013
+ * Updated by JCasGen Fri Sep 20 15:16:25 EDT 2013
  * XML source: /Users/willibeamin/workspace/hw2-wibekwe/.git/hw2/hw2-wibekwe/src/main/resources/descriptors/subTypesDescriptor.xml
  * @generated */
 public class CASDocuments extends DocumentAnnotation {

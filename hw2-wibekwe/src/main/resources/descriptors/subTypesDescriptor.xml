@@ -110,9 +110,10 @@
       <supertypeName>edu.cmu.deiis.types.NGram</supertypeName>
       <features>
         <featureDescription>
-          <name>Token</name>
+          <name>NGramTokens</name>
           <description/>
-          <rangeTypeName>edu.cmu.deiis.types.subTypes.Token</rangeTypeName>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+        <elementType>edu.cmu.deiis.types.subTypes.Token</elementType>
         </featureDescription>
       </features>
     </typeDescription>

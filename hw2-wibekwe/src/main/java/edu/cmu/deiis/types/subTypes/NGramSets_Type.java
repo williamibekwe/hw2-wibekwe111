@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import edu.cmu.deiis.types.NGram_Type;
 
 /** 
- * Updated by JCasGen Fri Sep 20 11:56:49 EDT 2013
+ * Updated by JCasGen Fri Sep 20 15:16:25 EDT 2013
  * @generated */
 public class NGramSets_Type extends NGram_Type {
   /** @generated */
@@ -45,22 +45,41 @@ public class NGramSets_Type extends NGram_Type {
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.cmu.deiis.types.subTypes.NGramSets");
  
   /** @generated */
-  final Feature casFeat_Token;
+  final Feature casFeat_NGramTokens;
   /** @generated */
-  final int     casFeatCode_Token;
+  final int     casFeatCode_NGramTokens;
   /** @generated */ 
-  public int getToken(int addr) {
-        if (featOkTst && casFeat_Token == null)
-      jcas.throwFeatMissing("Token", "edu.cmu.deiis.types.subTypes.NGramSets");
-    return ll_cas.ll_getRefValue(addr, casFeatCode_Token);
+  public int getNGramTokens(int addr) {
+        if (featOkTst && casFeat_NGramTokens == null)
+      jcas.throwFeatMissing("NGramTokens", "edu.cmu.deiis.types.subTypes.NGramSets");
+    return ll_cas.ll_getRefValue(addr, casFeatCode_NGramTokens);
   }
   /** @generated */    
-  public void setToken(int addr, int v) {
-        if (featOkTst && casFeat_Token == null)
-      jcas.throwFeatMissing("Token", "edu.cmu.deiis.types.subTypes.NGramSets");
-    ll_cas.ll_setRefValue(addr, casFeatCode_Token, v);}
+  public void setNGramTokens(int addr, int v) {
+        if (featOkTst && casFeat_NGramTokens == null)
+      jcas.throwFeatMissing("NGramTokens", "edu.cmu.deiis.types.subTypes.NGramSets");
+    ll_cas.ll_setRefValue(addr, casFeatCode_NGramTokens, v);}
     
-  
+   /** @generated */
+  public int getNGramTokens(int addr, int i) {
+        if (featOkTst && casFeat_NGramTokens == null)
+      jcas.throwFeatMissing("NGramTokens", "edu.cmu.deiis.types.subTypes.NGramSets");
+    if (lowLevelTypeChecks)
+      return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_NGramTokens), i, true);
+    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_NGramTokens), i);
+  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_NGramTokens), i);
+  }
+   
+  /** @generated */ 
+  public void setNGramTokens(int addr, int i, int v) {
+        if (featOkTst && casFeat_NGramTokens == null)
+      jcas.throwFeatMissing("NGramTokens", "edu.cmu.deiis.types.subTypes.NGramSets");
+    if (lowLevelTypeChecks)
+      ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_NGramTokens), i, v, true);
+    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_NGramTokens), i);
+    ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_NGramTokens), i, v);
+  }
+ 
 
 
 
@@ -71,8 +90,8 @@ public class NGramSets_Type extends NGram_Type {
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_Token = jcas.getRequiredFeatureDE(casType, "Token", "edu.cmu.deiis.types.subTypes.Token", featOkTst);
-    casFeatCode_Token  = (null == casFeat_Token) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_Token).getCode();
+    casFeat_NGramTokens = jcas.getRequiredFeatureDE(casType, "NGramTokens", "uima.cas.FSArray", featOkTst);
+    casFeatCode_NGramTokens  = (null == casFeat_NGramTokens) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_NGramTokens).getCode();
 
   }
 }
