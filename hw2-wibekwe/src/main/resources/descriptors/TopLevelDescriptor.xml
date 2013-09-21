@@ -7,7 +7,7 @@
     <delegateAnalysisEngine key="DocumentTypeDescriptor">
       <import name="descriptors.DocumentTypeDescriptor"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="TokenDescriptor">
+  <delegateAnalysisEngine key="TokenDescriptor">
       <import name="descriptors.TokenDescriptor"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="NGramDescriptor">
@@ -24,7 +24,7 @@
     <flowConstraints>
       <fixedFlow>
         <node>DocumentTypeDescriptor</node>
-        <node>TokenDescriptor</node>
+      <node>TokenDescriptor</node>
         <node>NGramDescriptor</node>
       </fixedFlow>
     </flowConstraints>

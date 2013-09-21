@@ -1,6 +1,8 @@
 package annotators;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 import org.apache.uima.jcas.JCas;
@@ -37,18 +39,22 @@ public class NGramAnnotator extends JCasAnnotator_ImplBase{
 		 */
 		Question question = document.getQuestion();
 		Sentence sentence = question.getSentenceStructure();
-		FSArray questionTokens = sentence.getTokenList(); 
-		FSArray questionNGramsList = sentence.getNGramList();
-		
-		for(int i = 0; i < questionTokens.size(); i++){
-			String phrase = "";
-			for(int j = i, nIndex = 0; j < i + numberofNGrams && j < questionTokens.size(); j++, nIndex++){
-				 Token t =new Token(jcas);
-				 phrase += t.getTokenString();
-				 NGramSets ngs = (NGramSets)questionNGramsList.get(nIndex);
-				 ngs.setNGramTokens(i, t);
-				 questionNGramsList.set(nIndex, ngs);
+		String questionString[] = question.getQuestionsString().split(" ");
+		FSArray questionNGramsList =new FSArray(jcas, numberofNGrams);
+		for(int i = 0; i < numberofNGrams; i++){
+			//NGramSets ngs =new NGramSets(jcas); 
+			FSArray qNGramsList =new FSArray( jcas, questionString.length);
+			for( int j=1; j + i < questionString.length; j++ ){
+				Token t =new Token(jcas); 
+				String[] phrase = Arrays.copyOfRange(questionString,j,j+i+1);
+				String p = "";
+				for(String str: phrase)
+			        p = p + " " + str;		
+				//System.out.println(p);
+				t.setTokenString(p);
+				qNGramsList.set(j,t);
 			}
+			questionNGramsList.set(i,qNGramsList);
 		}
 		sentence.setNGramList(questionNGramsList);
 		
@@ -60,26 +66,30 @@ public class NGramAnnotator extends JCasAnnotator_ImplBase{
 		Answers answers = document.getAnswers(); 
 		FSArray answerList = answers.getAnswerList();
 		for( int count = 0; count < answerList.size(); count++){ 
-			Answer answer = (Answer) answerList.get(count);
-			Sentence answerSentence = answer.getSentenceStructure();
-			FSArray answerTokens = answerSentence.getTokenList(); 
-			FSArray answerNGramsList = answerSentence.getNGramList();
-			
-			for(int i = 0; i < answerTokens.size(); i++){
-				String phrase = "";
-				for(int j = i, nIndex = 0; j < i + numberofNGrams && j < answerTokens.size(); j++, nIndex++){
-					 Token t =new Token(jcas);
-					 phrase += t.getTokenString();
-					 NGramSets ngs = (NGramSets)answerNGramsList.get(nIndex);
-					 ngs.setNGramTokens(i, t);
-					 answerNGramsList.set(nIndex, ngs);
+			Answer ans = (Answer) answerList.get(count);
+			Sentence answerSentence = ans.getSentenceStructure();
+			String answerString[] = ans.getAnswerString().split(" ");
+			FSArray answerNGramsList =new FSArray(jcas, numberofNGrams);
+			for(int i = 0; i < numberofNGrams; i++){
+				//NGramSets ngs =new NGramSets(jcas); 
+				FSArray aNGramsList =new FSArray( jcas, answerString.length);
+				for( int j=2; j + i < answerString.length; j++ ){
+					Token t =new Token(jcas); 
+					String[] phrase = Arrays.copyOfRange(answerString,j,j+i+1);
+					String p = "";
+					for(String str: phrase)
+				        p = p + " " + str;		
+					System.out.println(p);
+					t.setTokenString(p);
+					aNGramsList.set(j,t);
 				}
+				answerNGramsList.set(i,aNGramsList);
 			}
 			answerSentence.setNGramList(answerNGramsList);
-			answerList.set(count, answer);
+			ans.setSentenceStructure(answerSentence);
+			answerList.set(count, ans);
 		}
 		answers.setAnswerList(answerList);
-		
 		document.setAnswers(answers);
 		document.setQuestion(question);
 	}

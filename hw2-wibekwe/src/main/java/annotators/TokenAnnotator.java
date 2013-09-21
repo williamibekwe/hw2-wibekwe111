@@ -13,7 +13,7 @@ import edu.cmu.deiis.types.subTypes.*;
 public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		
 	@Override
-	public void process(JCas jcas) {
+	public void process(JCas jcas) throws NullPointerException {
 		/*
 		 *This block of code gets the globally indexed file via iterator
 		 *so it can be used for the tokenization
@@ -27,15 +27,17 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 		 * This block of code tokenizes the word in the question string
 		 * and puts this back into the document globals index 
 		 */
-		String[] questionTokens = question.getQuestionsString().split(" "); 
+		String questionString = question.getQuestionsString();
+		System.out.println( "This is a question " + questionString);
+		String[] questionTokens = questionString.split(" "); 
 		//The length is n-1 because the in the file the first two word are not in the question string
 		FSArray qtokenList =new FSArray(jcas, questionTokens.length-1); 
-		for( int i = 0; i < qtokenList.size()-1; i++ ) { 
+		for( int i = 0; i < questionTokens.length-1; i++ ) { 
 			Token t =new Token(jcas); 
 			t.setTokenString(questionTokens[i+1]);
 			qtokenList.set(i, t);
 		}
-		Sentence sentence = question.getSentenceStructure(); 
+		Sentence sentence =new Sentence(jcas);
 		sentence.setTokenList(qtokenList);
 		question.setSentenceStructure(sentence);
 		document.setQuestion(question);
@@ -53,11 +55,12 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
 			FSArray atokenList =new FSArray(jcas, answerTokens.length-2); 
 			for( int j = 0; j < answerTokens.length-2; j++ ){ 
 				Token t =new Token(jcas); 
-				t.setTokenString(answerTokens[i+2]);
+				t.setTokenString(answerTokens[j+2]);
+				System.out.println(answerTokens[j+2]);
 				atokenList.set(j, t);
 			}
-			Sentence answerSentence = a.getSentenceStructure(); 
-			answerSentence.setTokenList(atokenList);
+			Sentence answerSentence =new Sentence(jcas);
+			answerSentence.setTokenList(atokenList); 
 			a.setSentenceStructure(answerSentence);
 			answerList.set(i, a);
 		}

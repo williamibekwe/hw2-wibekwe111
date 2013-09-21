@@ -10,11 +10,7 @@
     <vendor/>
     <configurationParameters/>
     <configurationParameterSettings/>
-    <typeSystemDescription>
-      <imports>
-        <import name="descriptors.subTypesDescriptor"/>
-      </imports>
-    </typeSystemDescription>
+    <typeSystemDescription/>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
